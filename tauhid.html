@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eid Milad-un-Nabi Card</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#051d17;           /* deep emerald */
+      --bg2:#06251d;          /* slightly lighter */
+      --gold:#f2d27b;         /* warm gold */
+      --gold-2:#ffd88a;       /* lighter gold */
+      --mint:#b8f5d1;         /* accent */
+      --card:#0b2e24;         /* card background */
+      --text:#eaf7f2;         /* body text */
+      --muted:#a5c9be;        /* muted text */
+      --glow: 0 0 24px rgba(242,210,123,.35), 0 0 60px rgba(242,210,123,.15);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0; background: radial-gradient(1200px 800px at 80% -20%, #0e4233 0%, var(--bg) 40%, #041511 100%);
+      color:var(--text);
+      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      min-height:100dvh; display:grid; place-items:center; padding:24px;
+    }
+
+    .wrap{width:min(980px,100%); display:grid; gap:18px}
+
+    .header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      letter-spacing:.6px; text-transform:uppercase; color:var(--muted); font-weight:600; font-size:.9rem;
+    }
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold); box-shadow: var(--glow)}
+
+    .card{
+      position:relative; overflow:hidden; border-radius:28px; padding:28px; background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)) ,
+        radial-gradient(1200px 600px at -20% -40%, rgba(255,255,255,.06), transparent 60%),
+        var(--card);
+      box-shadow: 0 30px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    /* Starfield */
+    .stars{position:absolute; inset:0; pointer-events:none}
+    .stars i{position:absolute; background: radial-gradient(circle at 40% 40%, #fff 0 35%, rgba(255,255,255,.1) 60%, transparent 70%);
+      width:2px;height:2px; border-radius:50%; opacity:.75; animation: twinkle 3.5s infinite ease-in-out}
+    @keyframes twinkle{ 0%,100%{opacity:.3; transform:scale(.8)} 50%{opacity:1; transform:scale(1.6)} }
+
+    /* Decorative corners */
+    .corner{position:absolute; width:120px; height:120px; border:1px solid rgba(242,210,123,.22); border-radius:24px; filter: drop-shadow(0 0 12px rgba(242,210,123,.15));}
+    .c1{top:14px; left:14px; border-right:none; border-bottom:none}
+    .c2{top:14px; right:14px; border-left:none; border-bottom:none}
+    .c3{bottom:14px; left:14px; border-right:none; border-top:none}
+    .c4{bottom:14px; right:14px; border-left:none; border-top:none}
+
+    .content{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px}
+    @media (max-width: 860px){ .content{grid-template-columns:1fr} }
+
+    .greeting{
+      padding:18px 12px 12px; position:relative; isolation:isolate;
+    }
+
+    /* Moon & Star */
+    .sky{ position:relative; height:160px; margin:4px 0 12px }
+    .moon{ width:120px; height:120px; border-radius:50%; background:radial-gradient(circle at 35% 35%, var(--gold-2) 0, var(--gold) 45%, #c69c45 65%, rgba(0,0,0,.35) 66%);
+      position:absolute; left:12px; top:10px; box-shadow: var(--glow); filter:saturate(1.1);
+      animation: float 7s ease-in-out infinite;
+    }
+    .moon:after{ content:""; position:absolute; inset:0; border-radius:inherit; box-shadow: inset -22px -18px 60px rgba(0,0,0,.35) }
+    .star{ position:absolute; left:94px; top:62px; width:16px; height:16px; transform:rotate(45deg); animation: float 7s ease-in-out infinite reverse}
+    .star:before, .star:after{ content:""; position:absolute; inset:0; background:radial-gradient(circle, #fff, var(--gold)); filter: drop-shadow(0 0 8px rgba(242,210,123,.75));}
+    .star:after{ transform: rotate(90deg) }
+    @keyframes float{ 0%,100%{ transform: translateY(-4px)} 50%{ transform: translateY(6px)} }
+
+    .headline{
+      font-family: "Playfair Display", serif; font-weight:700; line-height:1.1; font-size: clamp(28px, 4.8vw, 46px);
+      margin:0; letter-spacing:.3px; color:var(--gold);
+      text-shadow: 0 2px 0 rgba(0,0,0,.15), 0 0 24px rgba(242,210,123,.25);
+    }
+
+    .sub{margin:10px 0 16px; color:var(--muted); font-weight:400; font-size: clamp(14px, 1.8vw, 16px)}
+
+    .dua{
+      margin:16px 0 22px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      border:1px solid rgba(242,210,123,.18); padding:14px 16px; border-radius:16px; color:var(--text);
+      font-size: clamp(14px, 2vw, 17px); line-height:1.6
+    }
+    .dua em{ color: var(--gold-2); font-style: normal; font-weight:600 }
+
+    .footer-line{ display:flex; align-items:center; gap:10px; margin-top:8px; color:var(--muted)}
+    .footer-line .sep{ flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(242,210,123,.35), transparent) }
+
+    .from{ margin-top:10px; font-weight:600; color:var(--mint) }
+
+    /* Lanterns */
+    .lanterns{ position:absolute; right:0; top:0; bottom:0; width:min(360px, 48%); pointer-events:none}
+    @media (max-width: 860px){ .lanterns{ position:relative; width:100%; height:200px; margin-top:8px } }
+
+    .lantern{ position:absolute; top: -8px; filter: drop-shadow(0 10px 20px rgba(0,0,0,.6)) }
+    .lantern svg{ width:120px; height:200px }
+    .lantern:nth-child(1){ right:24px; animation: swing 5.5s ease-in-out infinite }
+    .lantern:nth-child(2){ right:140px; animation: swing 6.2s ease-in-out infinite reverse }
+    @media (max-width: 860px){
+      .lantern{ position:absolute; top:-12px }
+      .lantern:nth-child(1){ left:10%; right:auto }
+      .lantern:nth-child(2){ left:auto; right:16% }
+    }
+    @keyframes swing{ 0%,100%{ transform: rotate(-3.5deg) } 50%{ transform: rotate(3.5deg) }}
+
+    /* Controls */
+    .controls{
+      display:grid; gap:12px; grid-template-columns:1fr 1fr; background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:16px;
+      backdrop-filter: blur(6px);
+    }
+    .controls label{ display:grid; gap:6px; font-size:.9rem; color:var(--muted) }
+    .controls input, .controls textarea{
+      width:100%; border:none; outline:none; background:#0a241d; color:var(--text); padding:12px 14px;
+      border-radius:14px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+      font-family:inherit; resize:vertical
+    }
+    .controls textarea{ min-height:80px; grid-column:1/-1 }
+
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; grid-column:1/-1 }
+    .btn{
+      appearance:none; border:none; outline:none; cursor:pointer; padding:12px 16px; border-radius:14px;
+      background: linear-gradient(180deg, var(--gold-2), var(--gold)); color:#2b2206; font-weight:700;
+      box-shadow: 0 10px 20px rgba(242,210,123,.25), inset 0 0 0 1px rgba(255,255,255,.35);
+      transition: transform .12s ease, filter .12s ease
+    }
+    .btn:hover{ transform: translateY(-2px) }
+    .btn.secondary{ background: #123c30; color: var(--text); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14) }
+
+    .note{ font-size:.85rem; color:var(--muted) }
+
+    /* Confetti */
+    .confetti{ position:fixed; inset:0; pointer-events:none; overflow:hidden }
+    .confetti i{ position:absolute; width:10px; height:16px; background:var(--gold); opacity:.9; transform: translateY(-10vh) rotate(0deg); animation: fall 4.5s linear forwards }
+    @keyframes fall{ to{ transform: translateY(110vh) rotate(540deg)} }
+
+    /* print tweaks */
+    @media print{
+      body{ background:#fff }
+      .controls, .brand, .btns, .note{ display:none !important }
+      .card{ box-shadow:none }
+      .corner{ display:none }
+    }
+     .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366; /* WhatsApp green */
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+    <a class="whatsapp-btn" 
+     href="https://wa.me/919335481411?text=Hello%20I%20want%20to%20connect%20with%20you" 
+     target="_blank">
+     💬 Chat on WhatsApp
+  </a>
+  <div class="wrap">
+    <div class="header">
+      <div class="brand"><span class="dot"></span> Er TAUHID •Eid Milad-un-Nabi Mubark Ho</div>
+      <button class="btn secondary" id="printBtn" title="Print this card">Print</button>
+    </div>
+
+    <section class="card" aria-label="Greeting card">
+      <!-- Decorative corners -->
+      <div class="corner c1"></div>
+      <div class="corner c2"></div>
+      <div class="corner c3"></div>
+      <div class="corner c4"></div>
+
+      <!-- Stars -->
+      <div class="stars" id="stars"></div>
+
+      <div class="content">
+        <div class="greeting">
+
+          <div class="sky" aria-hidden="true">
+            <div class="moon"></div>
+            <div class="star"></div>
+          </div>
+
+          <h1 class="headline">Eid Milad-un-Nabi Mubarak <span aria-label="Peace be upon him">ﷺ</span></h1>
+          <p class="sub">May the blessings and mercy of Allah be upon you and your family on this sacred day.</p>
+
+          <div class="dua" id="message">
+            On this blessed occasion of the Prophet's birthday, may your heart be filled with <em>peace</em>, your home with <em>barakah</em>, and your life with <em>Rahmah</em>.
+          </div>
+
+          <div class="footer-line"><span class="sep"></span> <span id="toLine">To: Dear Friend</span> <span class="sep"></span></div>
+          <div class="from" id="fromLine">— From: Your Well‑wisher Er.Tauhid</div>
+
+        </div>
+
+        <!-- Lanterns (SVG) -->
+        <div class="lanterns" aria-hidden="true">
+          <div class="lantern">
+            <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="56" y="8" width="8" height="20" rx="4" fill="#e8c870"/>
+              <path d="M60 28 L60 40" stroke="#e8c870" stroke-width="2"/>
+              <g filter="url(#g1)">
+                <path d="M60 40 C95 40 110 70 110 100 C110 130 95 160 60 160 C25 160 10 130 10 100 C10 70 25 40 60 40 Z" fill="#f2d27b"/>
+                <path d="M60 44 C90 44 102 70 102 100 C102 130 90 156 60 156 C30 156 18 130 18 100 C18 70 30 44 60 44 Z" fill="#c79d45" opacity=".25"/>
+              </g>
+              <circle cx="60" cy="100" r="18" fill="#fff8d6"/>
+              <defs>
+                <filter id="g1" x="0" y="32" width="120" height="140" color-interpolation-filters="sRGB">
+                  <feGaussianBlur stdDeviation="1.5"/>
+                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#f2d27b" flood-opacity=".3"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div class="lantern">
+            <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="56" y="8" width="8" height="20" rx="4" fill="#e8c870"/>
+              <path d="M60 28 L60 40" stroke="#e8c870" stroke-width="2"/>
+              <g filter="url(#g2)">
+                <path d="M60 40 C95 40 110 70 110 100 C110 130 95 160 60 160 C25 160 10 130 10 100 C10 70 25 40 60 40 Z" fill="#ffd88a"/>
+                <path d="M60 44 C90 44 102 70 102 100 C102 130 90 156 60 156 C30 156 18 130 18 100 C18 70 30 44 60 44 Z" fill="#c79d45" opacity=".25"/>
+              </g>
+              <circle cx="60" cy="100" r="18" fill="#fff8d6"/>
+              <defs>
+                <filter id="g2" x="0" y="32" width="120" height="140" color-interpolation-filters="sRGB">
+                  <feGaussianBlur stdDeviation="1.5"/>
+                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#ffd88a" flood-opacity=".3"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Personalize the card">
+      <label>
+        Recipient name
+        <input id="toInput" placeholder="e.g., Ahmed, Family, Team" />
+      </label>
+      <label>
+        From name
+        <input id="fromInput" placeholder="e.g., Ayesha, Your Friend" />
+      </label>
+      <label style="grid-column:1/-1">
+        Custom message (optional)
+        <textarea id="msgInput" placeholder="Write a heartfelt dua or greeting...\n(Leave empty to keep the default message)"></textarea>
+      </label>
+      <div class="btns">
+        <button class="btn" id="applyBtn">Apply to Card</button>
+        <button class="btn secondary" id="shareBtn">Share</button>
+        <button class="btn secondary" id="linkBtn">Copy Link with Message</button>
+        <span class="note">Tip: Click <b>Apply to Card</b>, then <b>Print</b> to save as PDF or share a screenshot.</span>
+      </div>
+    </section>
+
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  </div>
+
+  <script>
+    // --- Starfield ---
+    const stars = document.getElementById('stars');
+    for(let i=0;i<90;i++){
+      const s=document.createElement('i');
+      const x=Math.random()*100, y=Math.random()*100;
+      const size = Math.random()*2 + 1;
+      s.style.left = x + '%';
+      s.style.top  = y + '%';
+      s.style.width = size+'px';
+      s.style.height = size+'px';
+      s.style.animationDelay = (Math.random()*3).toFixed(2)+'s';
+      stars.appendChild(s);
+    }
+
+    // --- Personalization ---
+    const toInput   = document.getElementById('toInput');
+    const fromInput = document.getElementById('fromInput');
+    const msgInput  = document.getElementById('msgInput');
+    const toLine    = document.getElementById('toLine');
+    const fromLine  = document.getElementById('fromLine');
+    const message   = document.getElementById('message').innerHTML = reply.replace(/\n/g,'<br>');
+});
+
+
+// keyboard shortcut: press A to animate
+document.addEventListener('keydown', (e)=>{ if(e.key.toLowerCase()==='a'){ document.getElementById('animateBtn').click(); } });
+
+
+</script>
+<footer>
+      Copyright © <span id="2025"></span> 
+      <strong>Er Tauhid</strong> — All rights reserved.
+    </footer>
+</body>
+</html>
